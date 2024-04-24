@@ -16,8 +16,8 @@ export const appApi = createApi({
   reducerPath: "appApi",
   tagTypes: ["User", "Record", "Role"],
   baseQuery: fetchBaseQuery({
-    // baseUrl: import.meta.env.VITE_APP_API_URL,
-    baseUrl: "http://54.164.114.157/",
+    baseUrl: import.meta.env.VITE_APP_API_URL,
+    // baseUrl: "http://54.164.114.157/",
     credentials: "include",
     headers: {
       "Content-Type": "application/json",
