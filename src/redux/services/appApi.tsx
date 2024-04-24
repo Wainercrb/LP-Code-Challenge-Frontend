@@ -27,7 +27,7 @@ export const appApi = createApi({
   endpoints: (builder) => ({
     verifyUser: builder.query<User, null>({
       query: () => "verify-user",
-      async onQueryStarted(id, { dispatch, queryFulfilled }) {
+      async onQueryStarted(_id, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
           dispatch(setUser(data));
