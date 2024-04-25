@@ -32,6 +32,7 @@ function ProfilePage() {
                 <Grid item xs={12}>
                   <InputLabel htmlFor="username">Username</InputLabel>
                   <TextField
+                    data-testid="profile-username"
                     disabled
                     fullWidth
                     id="username"
@@ -42,6 +43,7 @@ function ProfilePage() {
                 <Grid item xs={12}>
                   <InputLabel htmlFor="role">Role</InputLabel>
                   <TextField
+                    data-testid="profile-role"
                     disabled
                     fullWidth
                     id="role"
@@ -53,6 +55,7 @@ function ProfilePage() {
                 <Grid item xs={12}>
                   <InputLabel htmlFor="balance">Balance</InputLabel>
                   <TextField
+                    data-testid="profile-balance"
                     disabled
                     fullWidth
                     id="balance"

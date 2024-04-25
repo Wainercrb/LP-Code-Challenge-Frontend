@@ -6,7 +6,7 @@ import { renderWithProviders } from "../../../src/utils/test-utils";
 import { http, HttpResponse } from "msw";
 import { setupServer } from "msw/node";
 import { Role, User } from "../../../src/models/User";
-import '@testing-library/jest-dom'
+import "@testing-library/jest-dom";
 
 export const handlers = [
   http.get("/profile", async () => {
@@ -34,6 +34,29 @@ describe("Profile Page", () => {
 
     await waitFor(() => {
       expect(screen.queryByTestId("circular-progress")).not.toBeInTheDocument();
+    });
+  });
+
+  test("Should render the backend values content", async () => {
+    renderWithProviders(<ProfilePage />);
+    const profileUsernameInput = screen
+      .getByTestId("profile-username")
+      .querySelector("input");
+    const profileRoleInput = screen
+      .getByTestId("profile-role")
+      .querySelector("input");
+    const profileBalanceInput = screen
+      .getByTestId("profile-balance")
+      .querySelector("input");
+
+    expect(profileUsernameInput).toBeInTheDocument();
+    expect(profileRoleInput).toBeInTheDocument();
+    expect(profileBalanceInput).toBeInTheDocument();
+
+    await waitFor(() => {
+      expect((profileUsernameInput as HTMLInputElement).value).toBe("admin");
+      expect((profileRoleInput as HTMLInputElement).value).toBe(Role.admin);
+      expect((profileBalanceInput as HTMLInputElement).value).toBe("0");
     });
   });
 });
