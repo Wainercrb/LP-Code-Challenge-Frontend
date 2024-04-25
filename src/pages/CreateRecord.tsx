@@ -128,8 +128,8 @@ function CreateRecordPage() {
 
       <Grid item md={6}>
         <Card>
-          <CardHeader title="Create Record"></CardHeader>
-          <form onSubmit={formik.handleSubmit}>
+          <CardHeader data-testid="new-record-form-title" title="Create Record"></CardHeader>
+          <form onSubmit={formik.handleSubmit} data-testid="create-record-form">
             <CardContent>
               <Grid item container spacing={2} justifyContent="center">
                 <Grid item xs={12}>
@@ -144,6 +144,7 @@ function CreateRecordPage() {
                       Operation
                     </InputLabel>
                     <Select
+                      data-testid="new-record-select-operation"
                       labelId="demo-simple-select-error-label"
                       id="demo-simple-select-error"
                       label="Operation"
@@ -174,6 +175,7 @@ function CreateRecordPage() {
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
+                    data-testid="new-record-input-valueA"
                     fullWidth
                     id="valueA"
                     name="valueA"
@@ -191,6 +193,7 @@ function CreateRecordPage() {
                 <Grid item xs={12}>
                   <TextField
                     fullWidth
+                    data-testid="new-record-input-valueB"
                     id="valueB"
                     name="valueB"
                     label="Value B"
@@ -218,6 +221,7 @@ function CreateRecordPage() {
                 }}
               >
                 <Button
+                  data-testid="create-record-submit"
                   disabled={isLoading}
                   color="primary"
                   variant="contained"

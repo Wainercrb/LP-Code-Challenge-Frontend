@@ -1,30 +1,54 @@
-# React + TypeScript + Vite
+# Frontend Application README
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+TRUENORT Frontend code challenge application! This README will guide you through setting up and running the project.
 
-Currently, two official plugins are available:
+## Requirements
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node.js v20.11.0
+- npm v10.2.4
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+To get started, follow these simple steps:
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone this repository to your local machine.
+2. Install dependencies by running `npm install`.
+3. Depending on your preference, run `npm run dev` to start the development server or `npm run build` and `npm run preview` for prod version.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Main Stack
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Our frontend application is built using the following technologies:
+
+- **Vite**: Fast, opinionated web dev build tool that serves your code via native ES modules.
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: Typed superset of JavaScript that compiles to plain JavaScript.
+- **Material-UI**: React components for faster and easier web development.
+- **Formik**: Form library for React.
+- **Jest**: Delightful JavaScript Testing Framework with a focus on simplicity.
+- **React Testing Library**: Testing utilities for React components.
+- **Redux Toolkit**: Package to simplify Redux logic and manage application state.
+
+## Infrastructure
+
+Our frontend application architecture is based on Atomic Design principles and Redux Toolkit design patterns.
+
+## CI/CD
+
+We utilize GitHub Actions for automating our CI/CD pipeline. GitHub Actions are configured to:
+
+- Format code
+- Lint code
+- Run tests
+- Build the project
+
+## Cloud
+
+Our application is deployed on Vercel. We chose Vercel for its simplicity, scalability, and ability to seamlessly integrate with our frontend build process.
+
+## Code Coverage
+
+We are proud to achieve almost 75% code coverage in our tests, ensuring the reliability and stability of our application.
+
+It's important to mention that we omitted some tests since they were repetitive. For this code challenge, we focused on creating the most important tests.
+
+For more information, refer to the [backend solution provided](https://github.com/Wainercrb/LP-Code-Challenge-Backend/tree/main?tab=readme-ov-file#solution-provided).

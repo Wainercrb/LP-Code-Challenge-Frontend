@@ -105,7 +105,7 @@ const TableSkeleton: FC<{ columns: readonly Column[] }> = ({ columns }) => {
         <TableRow key={rowIndex}>
           {columns.map(({ name }) => (
             <TableCell key={name}>
-              <Skeleton variant="text" animation="wave" />
+              <Skeleton data-testid="record-table-skeleton-item" variant="text" animation="wave" />
             </TableCell>
           ))}
         </TableRow>
@@ -232,7 +232,7 @@ function RecordPage() {
         <DebounceInputSearch defaultValue={criteria} setValue={setCriteria} />
       </Box>
       <TableContainer sx={{ maxHeight: 440 }}>
-        <Table stickyHeader aria-label="sticky table">
+        <Table stickyHeader aria-label="sticky table" data-testid="record-table">
           <TableHead>
             <TableRow>
               {TABLE_COLUMNS.map((column) => (
