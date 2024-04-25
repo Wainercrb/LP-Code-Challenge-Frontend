@@ -52,3 +52,11 @@ We are proud to achieve almost 75% code coverage in our tests, ensuring the reli
 It's important to mention that we omitted some tests since they were repetitive. For this code challenge, we focused on creating the most important tests.
 
 For more information, refer to the [backend solution provided](https://github.com/Wainercrb/LP-Code-Challenge-Backend/tree/main?tab=readme-ov-file#solution-provided).
+
+
+## Demo
+
+
+https://github.com/Wainercrb/LP-Code-Challenge-Frontend/assets/25513765/d223c006-2456-4c48-9814-f3d77e691905
+
+
