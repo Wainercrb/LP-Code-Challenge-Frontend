@@ -14,7 +14,7 @@ import { Record } from "@/models/Record";
 
 export const appApi = createApi({
   reducerPath: "appApi",
-  tagTypes: ["User", "Record", "Role"],
+  tagTypes: ["User", "Record", "Role", "Session"],
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_APP_API_URL,
     credentials: "include",
@@ -24,7 +24,6 @@ export const appApi = createApi({
   }),
   endpoints: (builder) => ({
     verifyUser: builder.query<User, null>({
-      providesTags: ["User"],
       query: () => "verify-user",
       async onQueryStarted(_id, { dispatch, queryFulfilled }) {
         try {
@@ -55,13 +54,14 @@ export const appApi = createApi({
       }),
     }),
     getProfile: builder.query<User, undefined>({
-      providesTags: ["User"],
+      providesTags: ["Session"],
       query: () => ({
         url: "profile",
         method: "GET",
       }),
     }),
     crateRecord: builder.mutation<Record, Partial<CreateRecordPayload>>({
+      invalidatesTags: ["Record", "Session"],
       query: (body) => ({
         url: "record",
         method: "POST",
@@ -69,10 +69,9 @@ export const appApi = createApi({
           ...body,
         },
       }),
-      invalidatesTags: ["Record"],
     }),
     deleteRecord: builder.mutation<Record, Partial<DeleteRecordPayload>>({
-      invalidatesTags: ["Record", "User"],
+      invalidatesTags: ["Record", "Session"],
       query: (body) => ({
         url: "record",
         method: "DELETE",
