@@ -1,8 +1,11 @@
-import { test, expect, describe } from 'vitest';
-import { buildPagination, PaginationInput } from '../.././../src/utils/pagination';
+import { test, expect, describe } from "vitest";
+import {
+  buildPagination,
+  PaginationInput,
+} from "../.././../src/utils/pagination";
 
-describe('buildPagination Function', () => {
-  test('should build pagination with default order direction', () => {
+describe("buildPagination Function", () => {
+  test("should build pagination with default order direction", () => {
     const input: PaginationInput = {
       page: 0,
       size: 10,
@@ -11,7 +14,7 @@ describe('buildPagination Function', () => {
     const expectedOutput = {
       page: 1,
       size: 10,
-      orderDirection: 'ASC',
+      orderDirection: "ASC",
     };
 
     const result = buildPagination(input);
@@ -19,17 +22,17 @@ describe('buildPagination Function', () => {
     expect(result).toEqual(expectedOutput);
   });
 
-  test('should build pagination with provided order direction', () => {
+  test("should build pagination with provided order direction", () => {
     const input: PaginationInput = {
       page: 0,
       size: 10,
-      orderDirection: 'desc',
+      orderDirection: "desc",
     };
 
     const expectedOutput = {
       page: 1,
       size: 10,
-      orderDirection: 'DESC',
+      orderDirection: "DESC",
     };
 
     const result = buildPagination(input);
@@ -37,18 +40,18 @@ describe('buildPagination Function', () => {
     expect(result).toEqual(expectedOutput);
   });
 
-  test('should build pagination with provided criteria', () => {
+  test("should build pagination with provided criteria", () => {
     const input: PaginationInput = {
       page: 0,
       size: 10,
-      criteria: 'name',
+      criteria: "name",
     };
 
     const expectedOutput = {
       page: 1,
       size: 10,
-      criteria: 'name',
-      orderDirection: 'ASC',
+      criteria: "name",
+      orderDirection: "ASC",
     };
 
     const result = buildPagination(input);
@@ -56,7 +59,7 @@ describe('buildPagination Function', () => {
     expect(result).toEqual(expectedOutput);
   });
 
-  test('should increment page number by 1', () => {
+  test("should increment page number by 1", () => {
     const input: PaginationInput = {
       page: 0,
       size: 10,
