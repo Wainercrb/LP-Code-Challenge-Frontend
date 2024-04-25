@@ -28,7 +28,7 @@ afterEach(() => server.resetHandlers());
 
 afterAll(() => server.close());
 
-describe("Profile ", () => {
+describe("Profile Page", () => {
   test("Fetch and render page content", async () => {
     renderWithProviders(<ProfilePage />);
 
