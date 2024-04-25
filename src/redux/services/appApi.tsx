@@ -18,6 +18,9 @@ export const appApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_APP_API_URL,
     credentials: "include",
+    prepareHeaders(headers) {
+      return headers
+    }
   }),
   endpoints: (builder) => ({
     verifyUser: builder.query<User, null>({

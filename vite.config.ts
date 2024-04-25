@@ -8,6 +8,9 @@ import { configDefaults } from "vitest/config";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    cors: true
+  },
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),
