@@ -19,9 +19,8 @@ export const appApi = createApi({
     baseUrl: import.meta.env.VITE_APP_API_URL,
     credentials: "include",
     prepareHeaders(headers) {
-      headers.set("Access-Control-Allow-Methods", 'POST, GET, OPTIONS')
-      return headers
-    }
+      return headers;
+    },
   }),
   endpoints: (builder) => ({
     verifyUser: builder.query<User, null>({
@@ -71,7 +70,7 @@ export const appApi = createApi({
       invalidatesTags: ["Record"],
     }),
     deleteRecord: builder.mutation<Record, Partial<DeleteRecordPayload>>({
-      invalidatesTags: ['Record'],
+      invalidatesTags: ["Record"],
       query: (body) => ({
         url: "record",
         method: "DELETE",
