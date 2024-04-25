@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getPlainErrorText } from "@/redux/utils/errors";
+import { useNavigate } from "react-router-dom";
 
 // Yup Validator
 import * as yup from "yup";
@@ -21,7 +22,7 @@ import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 
 // Redux
-import { useSignInMutation } from "@/redux/services/appApi";
+import { useSignUpMutation } from "@/redux/services/appApi";
 import { Role } from "@/models/User";
 import { useAppDispatch } from "@/redux/hook";
 import { setUser } from "@/redux/features/userSlice";
@@ -37,13 +38,14 @@ const validationSchema = yup.object({
     .required("Password is required"),
 });
 
-function SignInPage() {
+function SignUpPage() {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate()
 
   const [errorStackBarOpen, setErrorStackBarOpen] = useState(false);
 
-  const [handleSignIn, { isLoading, isError, error, isSuccess, data }] =
-    useSignInMutation();
+  const [handleSignUp, { isLoading, isError, error, isSuccess, data }] =
+    useSignUpMutation();
 
   const formik = useFormik({
     initialValues: {
@@ -52,10 +54,10 @@ function SignInPage() {
     },
     validationSchema: validationSchema,
     onSubmit: ({ username, password }) => {
-      handleSignIn({
+      handleSignUp({
         username,
         password,
-        role: Role.guess,
+        role: Role.admin,
         balance: 0,
       });
     },
@@ -64,10 +66,11 @@ function SignInPage() {
   useEffect(() => {
     if (isSuccess) {
       dispatch(setUser(data));
+      navigate('/')
     } else if (isError) {
       setErrorStackBarOpen(true);
     }
-  }, [isError, isSuccess, data, dispatch]);
+  }, [isError, isSuccess, data, dispatch, navigate]);
 
   return (
     <Grid
@@ -96,7 +99,7 @@ function SignInPage() {
 
       <Grid item md={4}>
         <Card>
-          <CardHeader title="Sign In"></CardHeader>
+          <CardHeader title="Sign Up"></CardHeader>
           <form onSubmit={formik.handleSubmit}>
             <CardContent>
               <Grid item container spacing={2} justifyContent="center">
@@ -165,4 +168,4 @@ function SignInPage() {
   );
 }
 
-export default SignInPage;
+export default SignUpPage;

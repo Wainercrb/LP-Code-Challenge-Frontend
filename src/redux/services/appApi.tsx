@@ -89,6 +89,16 @@ export const appApi = createApi({
       }),
       invalidatesTags: ["User"],
     }),
+     signUp: builder.mutation<User, Partial<User>>({
+      query: (body) => ({
+        url: "sign-up",
+        method: "POST",
+        body: {
+          ...body,
+        },
+      }),
+      invalidatesTags: ["User"],
+    }),
     signOut: builder.mutation<undefined, undefined>({
       query: () => ({
         url: "sign-out",
@@ -106,6 +116,7 @@ export const {
   useGetProfileQuery,
   useGetOperationsQuery,
   useSignInMutation,
+  useSignUpMutation,
   useDeleteRecordMutation,
   useCrateRecordMutation,
 } = appApi;

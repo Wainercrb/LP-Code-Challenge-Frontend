@@ -16,6 +16,7 @@ import PublicLayout from "@/layouts/Public";
 
 // Pages
 import SignInPage from "@/pages/SignIn";
+import SignUpPage from "@/pages/SignUp";
 import RecordsPage from "@/pages/ListRecord";
 import CreateRecord from "@/pages/CreateRecord";
 import DashboardPage from "@/pages/Dashboard";
@@ -40,6 +41,17 @@ const publicRouterList: AppRouter[] = [
     element: (
       <PublicLayout>
         <SignInPage />
+      </PublicLayout>
+    ),
+  },
+   {
+    name: "Sign Up",
+    path: "/sign-up",
+    roles: ["guess"],
+    icon: <HomeIcon />,
+    element: (
+      <PublicLayout>
+        <SignUpPage />
       </PublicLayout>
     ),
   },
