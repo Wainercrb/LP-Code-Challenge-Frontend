@@ -24,6 +24,7 @@ export const appApi = createApi({
   }),
   endpoints: (builder) => ({
     verifyUser: builder.query<User, null>({
+      providesTags: ["User"],
       query: () => "verify-user",
       async onQueryStarted(_id, { dispatch, queryFulfilled }) {
         try {
@@ -54,6 +55,7 @@ export const appApi = createApi({
       }),
     }),
     getProfile: builder.query<User, undefined>({
+      providesTags: ["User"],
       query: () => ({
         url: "profile",
         method: "GET",
@@ -70,7 +72,7 @@ export const appApi = createApi({
       invalidatesTags: ["Record"],
     }),
     deleteRecord: builder.mutation<Record, Partial<DeleteRecordPayload>>({
-      invalidatesTags: ["Record"],
+      invalidatesTags: ["Record", "User"],
       query: (body) => ({
         url: "record",
         method: "DELETE",
@@ -89,7 +91,7 @@ export const appApi = createApi({
       }),
       invalidatesTags: ["User"],
     }),
-     signUp: builder.mutation<User, Partial<User>>({
+    signUp: builder.mutation<User, Partial<User>>({
       query: (body) => ({
         url: "sign-up",
         method: "POST",
