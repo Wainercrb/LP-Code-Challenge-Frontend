@@ -9,7 +9,17 @@ import { configDefaults } from "vitest/config";
 export default defineConfig({
   plugins: [react()],
   server: {
-    cors: true
+    cors: true,
+    proxy: {
+      '/api': {
+        target: 'https://lp-code-challenge-backend.onrender.com/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    }
+  },
+  preview: {
+    port: 5173
   },
   resolve: {
     alias: {

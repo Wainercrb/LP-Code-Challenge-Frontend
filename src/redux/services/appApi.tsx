@@ -19,6 +19,7 @@ export const appApi = createApi({
     baseUrl: import.meta.env.VITE_APP_API_URL,
     credentials: "include",
     prepareHeaders(headers) {
+      headers.set("Access-Control-Allow-Methods", 'POST, GET, OPTIONS')
       return headers
     }
   }),
