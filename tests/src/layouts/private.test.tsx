@@ -1,5 +1,5 @@
 import React from "react";
-import PublicLayout from "../../../src/layouts/Public";
+import PrivateLayout from "../../../src/layouts/Public";
 import { test, expect, describe, beforeAll, afterAll } from "vitest";
 import { render } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
@@ -33,13 +33,13 @@ afterAll(() => server.resetHandlers());
 afterAll(() => server.close());
 
 
-describe("PublicLayout Component", () => {
+describe("PrivateLayout Component", () => {
   test("should render correctly with default props", () => {
     const { getByText } = render(
       <MemoryRouter>
-        <PublicLayout>
+        <PrivateLayout>
           <div>Hello World</div>
-        </PublicLayout>
+        </PrivateLayout>
       </MemoryRouter>
     );
 

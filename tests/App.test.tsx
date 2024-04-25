@@ -6,6 +6,7 @@ import { renderWithProviders } from "../src/utils/test-utils";
 import { http, HttpResponse, delay } from "msw";
 import { setupServer } from "msw/node";
 import { Role, User } from "../src/models/User";
+import '@testing-library/jest-dom'
 
 export const handlers = [
   http.get("/verify-user", async () => {

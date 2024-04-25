@@ -240,7 +240,7 @@ export default function PrivateLayout({ children }: Props) {
       </AppBar>
       <Drawer variant="permanent" open={isDrawerOpen}>
         <DrawerHeader>
-          <Typography variant="h6" component="div" align="left">
+          <Typography variant="h6" component="div" align="left" data-testid="toolbar-dashboard-title">
             Load Pro
           </Typography>
           <IconButton onClick={handleDrawerClose}>
