@@ -200,7 +200,7 @@ export default function PrivateLayout({ children }: Props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
+          <Typography data-testid="dashboard-title" variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
             Dashboard
           </Typography>
 
