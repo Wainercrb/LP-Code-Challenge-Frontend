@@ -38,7 +38,7 @@ describe("App", () => {
     renderWithProviders(<App />, {
       preloadedState: {
         userReducer: {
-          user: { name: "test xd" },
+          user: { name: "test" },
         },
       },
     });

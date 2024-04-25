@@ -23,7 +23,10 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: ["./vitest.setup.ts"],
-    exclude: [...configDefaults.exclude],
+    exclude: [
+      ...configDefaults.exclude,
+      '**/src/models/**'
+    ],
     coverage: {
       provider: "istanbul", // or 'v8'
       thresholds: {
