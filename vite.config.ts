@@ -16,10 +16,7 @@ export default defineConfig({
   },
   test: {
     exclude: [
-      ...configDefaults.exclude,
-      "./src/theme.ts",
-      "**/src/*App.tsx",
-      "*/main.tsx",
+      ...configDefaults.exclude
     ],
     environment: "jsdom",
     coverage: {
