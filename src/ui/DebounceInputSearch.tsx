@@ -25,8 +25,9 @@ function DebounceInputSearch({
   return (
     <Box>
       <TextField
+        data-testid="debounce-input-search"
         sx={{ minWidth: '350px'}}
-        label={placeholder}
+        placeholder={placeholder}
         defaultValue={defaultValue}
         onChange={(e) => debounced(e.target.value)}
       />
