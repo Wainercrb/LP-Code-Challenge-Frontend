@@ -12,8 +12,14 @@ TRUENORT Frontend code challenge application! This README will guide you through
 To get started, follow these simple steps:
 
 1. Clone this repository to your local machine.
-2. Install dependencies by running `npm install`.
-3. Depending on your preference, run `npm run dev` to start the development server or `npm run build` and `npm run preview` for prod version.
+2. Use the correct node and npm version.
+3. Install dependencies by running `npm install`.
+4. Add the .env file with:
+   ```dosini
+   VITE_APP_API_URL='http://localhost:3000/'
+   ```
+5. Make sure that your api is running on the value specified in VITE_APP_API_URL.
+6. Depending on your preference, run `npm run dev` to start the development server or `npm run build` and `npm run preview` for prod version.
 
 ## Main Stack
 
@@ -66,5 +72,7 @@ https://github.com/Wainercrb/LP-Code-Challenge-Frontend/assets/25513765/d223c006
 - I found an issue regarding the app middleware: if we reload the page on a path that is not the root, we get a 404 error code.
 
 - The token cookie is reset when the page is reloaded, which occurs in specific browsers. Consequently, users need to re-sign in.
+
+
 
 
