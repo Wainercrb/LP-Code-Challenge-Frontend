@@ -56,7 +56,15 @@ For more information, refer to the [backend solution provided](https://github.co
 
 ## Demo
 
+You can check the demo [here](https://lp-code-challenge-frontend.vercel.app)
+
 
 https://github.com/Wainercrb/LP-Code-Challenge-Frontend/assets/25513765/d223c006-2456-4c48-9814-f3d77e691905
+
+## Issues(to be fixed soon)
+
+- I found an issue regarding the app middleware: if we reload the page on a path that is not the root, we get a 404 error code.
+
+- The token cookie is reset when the page is reloaded, which occurs in specific browsers. Consequently, users need to re-sign in.
 
 
